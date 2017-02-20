@@ -21,19 +21,19 @@ unzip medicare_data.zip
 
 # remove first line of files and rename
 file1="Hospital General Information.csv"
-tail -n +2 "$file1" >hospitals.csv
+tail -n +2 "$file1" > hospitals.csv
 
 file2="Timely and Effective Care - Hospital.csv"
-tail -n +2 "$file2" >effective_care.csv
+tail -n +2 "$file2" > effective_care.csv
 
 file3="Readmissions and Deaths - Hospital.csv"
-tail -n +2 "$file3" >readmissions.csv
+tail -n +2 "$file3" > readmissions.csv
 
 file4="Measure Dates.csv"
-tail -n +2 "$file4" >measures.csv
+tail -n +2 "$file4" > measures.csv
 
 file5="hvbp_hcahps_11_10_2016.csv"
-tail -n +2 "$file5" >survey_responses.csv
+tail -n +2 "$file5" > survey_responses.csv
 
 
 # create hdfs dir and move file into it
