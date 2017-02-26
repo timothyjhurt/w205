@@ -4,7 +4,7 @@ select
   provider_number id,
   state,
   hospital_name name,
-  overall_rating_of_hospital_dimension_score over_rate_score,
+  cast(substr(overall_rating_of_hospital_dimension_score, 1, 2) as string) as overall_score,
   hcahps_base_score h_base_score,
   hcahps_consistency_score h_cons_score
 from survey_responses
