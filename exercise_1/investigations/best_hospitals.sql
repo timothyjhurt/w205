@@ -16,11 +16,8 @@ create table my_hospitals_best as
 select * from my_hospitals where hosp_over_rate like '5' AND
 mort_nat_comp not like 'Below%'
 AND
-read_nat_comp not like 'Below%'
-AND
-eff_nat_comp not like 'Below%'
-AND
-timeliness not like 'Below%';
+safe_nat_comp not like 'Below%'
+;
 
 create table hosp_eff_read as 
 select my_read.id, 
