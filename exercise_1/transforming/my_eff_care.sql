@@ -11,5 +11,7 @@ select
  score
 from effective_care
 where
- score not like 'Not%'
+ score > 0
+ AND
+ score < 100
 ;
