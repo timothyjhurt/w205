@@ -1,3 +1,10 @@
 drop table hospital_variability;
 
-create table hospital_variability as select measure_name, stddev(score) from my_eff_care where score <100 AND score >0 group by measure_name order by stddev(score) desc;
+create table hospital_variability as 
+select measure_name, stddev(score) score_vary
+from my_eff_care 
+group by measure_name 
+order by score_vary desc;
+
+select * from hospital_variability 
+order by score_vary desc limit 10;
