@@ -10,4 +10,7 @@ select
   compared_to_national comp_to_nat,
   score
 from readmissions
+where score > 0
+and
+score < 100
 ;
