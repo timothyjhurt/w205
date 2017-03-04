@@ -2,7 +2,7 @@ drop table my_surv_float;
 drop view agg_surv_scores;
 drop table my_eff_care_best;
 drop table my_read_best;
-drop table my_hospitals_best;
+drop table hospitals_best;
 drop table hosp_eff_read;
 
 
