@@ -33,13 +33,12 @@ select
 id,
 name,
 state,
-cast(overall_score as float) score1,
-cast(h_base_score as float) score2,
-cast(h_cons_score as float) score3
+cast(h_base_score as float) score1,
+cast(h_cons_score as float) score2
 from my_surveys;
 
 create view agg_surv_scores as 
-select id, name, state, score1*8+score2+score3*4 as score_tot 
+select id, name, state, score1+score2*4 as score_tot 
 from my_surv_float;
 
 select corr(s.score_tot, h.score_tot) 
