@@ -1,3 +1,7 @@
+drop table good_hosp;
+drop table tot_hosp;
+drop table best_states;
+
 create table good_hosp as select state, count(state) num_state from my_hospitals where hosp_over_rate=5 or hosp_over_rate=4 group by state;
 
 

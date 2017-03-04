@@ -1,3 +1,4 @@
+drop table my_measures;
 
 create table my_measures as
 select

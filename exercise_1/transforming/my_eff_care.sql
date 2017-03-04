@@ -1,3 +1,5 @@
+drop table my_eff_care;
+
 create table my_eff_care as
 select
  provider_id id,

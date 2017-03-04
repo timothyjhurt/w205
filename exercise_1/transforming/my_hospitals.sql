@@ -1,3 +1,5 @@
+drop table my_hospitals;
+
 create table my_hospitals as
 select
   provider_id id,

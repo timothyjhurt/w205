@@ -1,3 +1,4 @@
+drop table my_readmissions;
 
 create table my_readmissions as
 select

@@ -1,3 +1,4 @@
+drop table my_surveys;
 
 create table my_surveys as
 select

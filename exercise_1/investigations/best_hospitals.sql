@@ -1,3 +1,11 @@
+drop table my_eff_care_best;
+drop table my_read_best;
+drop table my_hospitals_best;
+drop table hosp_eff_read;
+drop table hospitals_best;
+
+
+
 create table my_eff_care_best as select id, name, avg(score) eff_score from my_eff_care where score < 100 AND score > 0 group by id, name order by avg(score) desc;
 
 create table my_read_best as select id, name, avg(score) read_score from my_readmissions where score < 100 and score > 0 group by id, name order by avg(score) desc;
