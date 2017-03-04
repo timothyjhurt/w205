@@ -24,13 +24,17 @@ AND
 timeliness not like 'Below%';
 
 create table hosp_eff_read as 
-select my_read.name, my_read.id, read_score, eff_score 
+select my_read.id, 
+hosp.state,
+my_read.name, 
+read_score, 
+eff_score
 from my_hospitals_best hosp 
 inner join my_eff_care_best eff on eff.id=hosp.id 
 inner join my_read_best my_read on my_read.id=hosp.id;
 
 create table hospitals_best as
-select id, name, eff_score*read_score score_tot from hosp_eff_read 
+select id, name, state, eff_score*read_score score_tot from hosp_eff_read 
 order by score_tot desc;
 
 select * from hospitals_best order by score_tot desc limit 10;
