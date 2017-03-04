@@ -10,6 +10,7 @@ select
   safety_of_care_national_comparison safe_nat_comp,
   readmission_national_comparison read_nat_comp,
   effectiveness_of_care_national_comparison eff_nat_comp,
+  patient_experience_national_comparison pat_nat_comp,
   timeliness_of_care_national_comparison timeliness
 from hospitals
 where 
@@ -26,4 +27,6 @@ AND
  effectiveness_of_care_national_comparison not like 'Not%'
 AND
  timeliness_of_care_national_comparison not like 'Not%'
+And
+ patient_experience_national_comparison not like 'Not%'
 ;
