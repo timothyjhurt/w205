@@ -18,7 +18,7 @@ read_nat_comp not like 'Below%'
 AND
 eff_nat_comp not like 'Below%'
 AND
-timeliness not like 'Below%'
+timeliness not like 'Below%';
 
 create table hosp_eff_read as select my_read.name, my_read.id, read_score,  eff_score from my_hospitals_best hosp inner join my_eff_care_best eff on eff.id=hosp.id inner join my_read_best my_read on my_read.id=hosp.id;
 
