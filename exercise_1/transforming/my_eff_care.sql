@@ -11,7 +11,7 @@ select
  score
 from effective_care
 where
- score > 0
+ score >= 0
  AND
- score < 100
+ score <= 100
 ;
