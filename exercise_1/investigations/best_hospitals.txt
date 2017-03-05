@@ -1,0 +1,41 @@
+What hospitals are models of high-quality care? That is, which hospitals have the most consistently high scores for a variety of procedures. 
+
+This question has two parts and the second part assums the high scores on a variety of procedures is the equivalent to high quality care. While I agree that high scores on procedures are important, I also assert that high scores on readmissions, that is, not having to be re-emitted, and high overall scores which include patient feedback, are also important in determining whether or not a hospital provides high quality care.
+
+In order to answer this question, with my assertions, I looked at the hospitals.csv and found multiple metrics that could be used to generate a ranking:
+
+Hospital Overall Rating (0 to 5)
+Mortality National Comparison Below, Same, or Above National Average
+Safety National Comparison Below, Same, or Above National Average 
+Readmissions National Comparison Below, Same, or Above National Average 
+Patient Experience National Comparison Below, Same, or Above National Average 
+Effectiveness National Comparison Below, Same, or Above National Average
+Timeliness National Comparison Below, Same, or Above National Average   
+
+However, when I queryed this data looking for hospitals that were above in every category and a 5 in overall rating, I ended up with 7 Hospitals, which is fewer than 10, and I had no way of knowing which hospital(s) should be number 8 as, the moment I relaxed any one of the conditions, my total number of hospitals went well above 10. 
+
+To recitify this, I decided to not use Effectiveness, Timeliness, or Readmissions from hospitals.csv as the tables of readmissions and effective_care had scores related to these metrics rather than qualitative categorical rankings. 
+
+So, I created multiple tables in order to:
+Average the scores across all procedures for a given hospitals (effective care)
+Average the scores across all readmissions and death scores for a given hospital
+and joined these two tables with the hospitals.csv table where I only looked at hospitals that were "not below%" in patient experience, safety or mortality, and received a 5 in overall rating. 
+
+This new table had two quantitative metrics (average effective score for the hospital across all procedures and average readmission score for the hospital) and I normalized them (by multiplying the readmissions score by 3.2 so that max(readmissions score)=max(effective score) and min(readmissions score)=min(effective score)) and summed them to get one final measure of overall care.
+
+Below are the best 10 hospitals for overall care listed from best to tenth best:
+
+
+
+ID      Name                                    State   Combined Score
+230259  ST JOSEPH MERCY CHELSEA                 MI      107.87323076923079
+360348  DUBLIN METHODIST HOSPITAL               OH      107.59777777777776
+140065  ADVENTIST LA GRANGE MEMORIAL HOSPITAL   IL      107.36935064935065
+110023  GORDON HOSPITAL                         GA      106.65948717948719
+010149  BAPTIST MEDICAL CENTER EAST             AL      106.22181818181818
+050238  METHODIST HOSPITAL OF SOUTHERN CA       CA      105.99047619047619
+150157  ST VINCENT CARMEL HOSPITAL INC          IN      105.66327272727273
+450023  CITIZENS MEDICAL CENTER                 TX      105.57298701298701
+120022  STRAUB CLINIC AND HOSPITAL              HI      105.13428571428571
+150008  ST CATHERINE HOSPITAL INC               IN      104.64623376623376
+
