@@ -8,7 +8,7 @@ select
  measure_id,
  measure_name,
  condition,
- score
+ cast(score as float) score
 from effective_care
 where
  score >= 0
