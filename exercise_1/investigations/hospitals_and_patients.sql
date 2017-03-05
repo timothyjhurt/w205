@@ -52,7 +52,7 @@ and
 hosp_over_rate <=5;
 
 create table hospitals_best as
-select id, name, state, eff_score+read_score*3.2+hosp_over_rate*20 score_tot 
+select id, name, state, eff_score+read_score+(hosp_over_rate-1)/4 score_tot 
 from hosp_eff_read;
 
 create table my_surv_float as
