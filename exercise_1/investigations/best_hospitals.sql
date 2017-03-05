@@ -28,9 +28,9 @@ from my_readmissions
 group by measure_name;
 
 create table norm_read as 
-select id, name, read.measure_name, score, min_score, max_score from my_readmissions read
+select id, name, readm.measure_name, score, min_score, max_score from my_readmissions readm
 inner join normalize_read norm on
-read.measure_name=norm.measure_name;
+readm.measure_name=norm.measure_name;
 
 create table my_read_best as 
 select id, name, avg((score-min_score)/(max_score-min_score)) read_score from norm_read
