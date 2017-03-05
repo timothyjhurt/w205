@@ -8,7 +8,7 @@ select
   measure_name,
   measure_id,
   compared_to_national comp_to_nat,
-  score
+  cast(score as float) score
 from readmissions
 where score >= 0
 and
