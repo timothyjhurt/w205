@@ -1,0 +1,23 @@
+What states are models of high-quality care?
+
+The dataset hospitals.csv has state information and it has overall ratings which range
+from 1 to 5. Because of this, I was able to solely use that dataset to answer this question. To do so, I aggregated all of the hospitals that scored either a 4 or a 5 for their overall rating. My logic in doing this is that a 4 and 5 are both above average and the higher percentage of hospitals a state has that are above average, the better that states' hospitals are. To calculate this percentage, I also needed information on how many hospitals every state has, so I aggregated the number of hospitals by state.
+
+Using these two quantities, number above average hospitals by state and number of hospitals by state, I simply divided the first by the second to get the fraction of hospitals in a given state that are above average.
+
+Here are the results from best to 10th best state:
+
+State   Fraction of hospitals 
+        within that state 
+        that are above average
+        in overall rating
+SD      0.8
+NH      0.6666666666666666
+VT      0.6666666666666666
+WI      0.6140350877192983
+DE      0.6
+IN      0.5303030303030303
+MN      0.5227272727272727
+MT      0.5
+HI      0.5
+OH      0.48598130841121495
