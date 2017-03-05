@@ -1,0 +1,19 @@
+Are average scores for hospital quality or procedural variability correlated with patient survey responses?
+
+I set out to answer the first part of this "or" statement so I aimed to utilize most of the work I had completed in trying to figure out the best hospitals. 
+
+To rank hospitals, I used the overall rating of the hospital, from 1-5, a readmissions score normalized by measure and averaged for a given hosptial from 0-1, and a effective care score normalized by procedure and averaged for a given hospital from 0-1. 
+
+The survey data had many many categories to choose from but also had two final categories of hcahps base score and hcahps consistency score. To create a single score, I normalized those two scores and added them together.
+
+The query simply used SQL CORR function to compute the correlation between the survey scores and the hospital quality scores. The answer I got was:
+
+0.5602411368751271
+Which corresponds to a moderate positive correlation.
+
+One caveat about this method, I do not know how the overall hospital rating was calculated and it's very possible that patient survey results were included in that calculation. Because of this, I don't know with certainty that there isn't a dependence that would greatly bias the data. So, as a quick test, I ran my code without the hospital rating to see how the correlation would change, and this is what I got:
+
+-0.18244979061805242
+Which is a slight negative correlation.
+
+The reason I think it is correct to include the overall hospital ranking is that there were other factors (like mortality and safety) taken into account to make that rating which do matter along with factors like readmission rates, effective treatment, and timeliness.
