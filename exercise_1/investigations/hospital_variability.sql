@@ -1,7 +1,7 @@
 drop table hospital_variability;
 
 create table hospital_variability as 
-select measure_name, stddev(score) score_vary
+select measure_name, stddev(score)/avg(score) score_vary
 from my_eff_care 
 group by measure_name 
 order by score_vary desc;
