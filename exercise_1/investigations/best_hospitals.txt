@@ -17,15 +17,13 @@ However, when I queryed this data looking for hospitals that were above in every
 To recitify this, I decided to not use Effectiveness, Timeliness, or Readmissions from hospitals.csv as the tables of readmissions and effective_care had scores related to these metrics rather than qualitative categorical rankings. 
 
 So, I created multiple tables in order to:
-Average the scores across all procedures for a given hospitals (effective care)
-Average the scores across all readmissions and death scores for a given hospital
-and joined these two tables with the hospitals.csv table where I only looked at hospitals that were "not below%" in patient experience, safety or mortality, and received a 5 in overall rating. 
+Normalize each effective care score across every measure_name (procedure) and then average all of those scores for a given hospitals (effective care)
+Normalize each readmissions score across all measure_id and then average those scores for a given hospital
+I then joined these two tables with the hospitals.csv table where I filtered hospitals by ensuring that I was only looking at hospitals that were "not below%" in patient experience, safety, or mortality, and received a 5 in overall rating. 
 
-This new table had two quantitative metrics (average effective score for the hospital across all procedures and average readmission score for the hospital) and I normalized them (by multiplying the readmissions score by 3.2 so that max(readmissions score)=max(effective score) and min(readmissions score)=min(effective score)) and summed them to get one final measure of overall care.
+This new table had two quantitative metrics (average effective score for the hospital across all procedures and average readmission score for the hospital) and I summed those two quantities (both normalized from 0 to 1) to get one final measure of overall care.
 
 Below are the best 10 hospitals for overall care listed from best to tenth best:
-
-
 
 ID      Name                                    State   Combined Score
 150008  ST CATHERINE HOSPITAL INC               IN      0.8591166589316632
