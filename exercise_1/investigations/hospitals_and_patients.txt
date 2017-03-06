@@ -16,4 +16,4 @@ One caveat about this method, I do not know how the overall hospital rating was 
 -0.18244979061805242
 Which is a slight negative correlation.
 
-The reason I think it is correct to include the overall hospital ranking is that there were other factors (like mortality and safety) taken into account to make that rating which do matter along with factors like readmission rates, effective treatment, and timeliness.
+The reason I think it is correct to include the overall hospital ranking is that there were other factors (like mortality and safety) taken into account to make that rating and those factors do matter along with factors like readmission rates, effective treatment, and timeliness.
