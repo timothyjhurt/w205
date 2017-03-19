@@ -556,13 +556,11 @@ hdfs dfs -mkdir /user/w205/project
 hdfs dfs -mkdir /user/w205/project/jobs94_06
 hdfs dfs -put "jobs94_06.csv" /user/w205/project/jobs94_06
 
-hdfs dfs -mkdir /user/w205/project
 
 hdfs dfs -mkdir /user/w205/project/jobs07_09
 hdfs dfs -put "jobs07_09.csv" /user/w205/project/jobs07_09
 
 
-hdfs dfs -mkdir /user/w205/project
 
 hdfs dfs -mkdir /user/w205/project/jobs10_14
 hdfs dfs -put "jobs10_14.csv" /user/w205/project/jobs10_14
