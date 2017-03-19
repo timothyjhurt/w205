@@ -8,7 +8,7 @@ empflag string,
 employees float,
 payroll float,
 annual_pay float,
-establishments float
+establishments float,
 year int
 )
 
