@@ -32,8 +32,12 @@ THE_URL1997="https://www2.census.gov/programs-surveys/cbp/datasets/1997/zbp97tot
 THE_URL1996="https://www2.census.gov/programs-surveys/cbp/datasets/1996/zbp96totals.zip"
 THE_URL1995="https://www2.census.gov/programs-surveys/cbp/datasets/1995/zbp95totals.zip"
 THE_URL1994="https://www2.census.gov/programs-surveys/cbp/datasets/1994/zbp94totals.zip"
+THE_URL_ZIP_LAT_LONG="http://federalgovernmentzipcodes.us/free-zipcode-database-Primary.csv"
 
-
+# get the csv of zip codes to lat&long
+wget "$THE_URL_ZIP_LAT_LONG" -O z_l_l.csv
+tail -n +2 "z_l_l.csv" > "zip_lat_long.csv"
+rm z_l_l.csv
 
 
 # get zip file
@@ -556,15 +560,14 @@ hdfs dfs -mkdir /user/w205/project
 hdfs dfs -mkdir /user/w205/project/jobs94_06
 hdfs dfs -put "jobs94_06.csv" /user/w205/project/jobs94_06
 
-
 hdfs dfs -mkdir /user/w205/project/jobs07_09
 hdfs dfs -put "jobs07_09.csv" /user/w205/project/jobs07_09
-
-
 
 hdfs dfs -mkdir /user/w205/project/jobs10_14
 hdfs dfs -put "jobs10_14.csv" /user/w205/project/jobs10_14
 
+hdfs dfs -mkdir /user/w205/project/zip_lat_long
+hdfs dfs -put "zip_lat_long.csv" /user/w205/project/zip_lat_long
 # delete the leftovers
 rm *
 
