@@ -84,3 +84,37 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/project/jobs10_14'
 ;
+
+
+
+
+
+DROP TABLE zip_lat_long;
+
+CREATE EXTERNAL TABLE zip_lat_long
+(
+zip string,
+zip_type string,
+city string,
+state string,
+location_type string,
+lat double,
+long double,
+location string,
+decommisioned string,
+tax_returns_filed int,
+estimated_population int,
+total_wages int
+)
+
+
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+  "separatorChar"=',',
+  "quoteChar"='"',
+  "escapeChar"='\\'
+)
+
+STORED AS TEXTFILE
+LOCATION '/user/w205/project/zip_lat_long'
+;
