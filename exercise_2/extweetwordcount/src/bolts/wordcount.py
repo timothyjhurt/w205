@@ -13,23 +13,26 @@ class WordCounter(Bolt):
         conn = psycopg2.connect(database="postgres", user="postgres", password="pass", host="localhost", port="5432")
         
         try:
-               # CREATE DATABASE can't run inside a transaction
+            # CREATE DATABASE can't run inside a transaction
             conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
             cur = conn.cursor()
             cur.execute("CREATE DATABASE tcount")
             cur.close()
             conn.close()
         except:
-            print "Could not create tcount"
-        conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
-        cur = conn.cursor()
-        cur.execute('''CREATE TABLE tweetwordcount
-               (word TEXT PRIMARY KEY     NOT NULL,
-               count INT     NOT NULL);''')
-        conn.commit()
+            self.log('Could not create tcount')
+        
+        try:
+            conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
+            cur = conn.cursor()
+            cur.execute('''CREATE TABLE tweetwordcount
+                   (word TEXT PRIMARY KEY     NOT NULL,
+                   count INT     NOT NULL);''')
+            conn.commit()
+            conn.close()
+        except:
+            self.log('already have table')  
         conn.close()
-
-
 
 
 
@@ -52,7 +55,7 @@ class WordCounter(Bolt):
 
         if self.counts[word]==1:
             cur.execute("INSERT INTO tweetwordcount (word, count) \
-                  VALUES", (word, 1));
+                  VALUES (%s, %s)",(word,1));
             conn.commit()
         else:
             cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[word], word))
