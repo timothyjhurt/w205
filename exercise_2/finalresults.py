@@ -15,7 +15,7 @@ if len(sys.argv)>1:
     for rec in records:
         print("Total number of occurances of the word '"+rec[0]+"':",rec[1])
 else:
-    cur.execute("SELECT * from tweetwordcount")
+    cur.execute("SELECT * from tweetwordcount ORDER BY word")
     records=cur.fetchall()
     for rec in records:
         print(rec)
