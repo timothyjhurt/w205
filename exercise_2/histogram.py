@@ -13,8 +13,11 @@ if len(sys.argv)!=3:
 else:
     num1=sys.argv[1]
     num2=sys.argv[2]
-    cur.execute("SELECT word, count from tweetwordcount WHERE count BETWEEN %s AND %s ORDER BY count DESC",(num1, num2))
-    records=cur.fetchall()
-    for rec in records:
-        print(rec)
+    try:
+        cur.execute("SELECT word, count from tweetwordcount WHERE count BETWEEN %s AND %s ORDER BY count DESC",(num1, num2))
+        records=cur.fetchall()
+        for rec in records:
+            print(rec)
+    except:
+        print("Either you didn't put two numbers or the table doesn't exist")
 
