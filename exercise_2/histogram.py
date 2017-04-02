@@ -8,11 +8,11 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 import sys
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 cur = conn.cursor()
-if len(sys.argv)!=3:
-    print('Please try again and make sure to enter two numbers')    
+if len(sys.argv)!=2:
+    print('Please try again and make sure to enter two numbers like 3,4')    
 else:
-    num1=sys.argv[1]
-    num2=sys.argv[2]
+    num1=sys.argv[1].split(',')[0]
+    num2=sys.argv[1].split(',')[1]
     try:
         cur.execute("SELECT word, count from tweetwordcount WHERE count BETWEEN %s AND %s ORDER BY count DESC",(num1, num2))
         records=cur.fetchall()
