@@ -2,6 +2,7 @@ Exercise 2 for Timothy Hurt
 
 To run this application, git clone the exercise 2 repository into an Amazon Instance built off of the UCB MIDS W205 EX2-FULL AMI.
 Make sure hadoop and postgres are running. (You can check using ps -ef|grep hadoop and ps -ef|grep postgres)
+Make sure psycopg is installed (pip install psycopg2==2.6.2)
 Inside the excercise 2 directory is another directory named: extweetwordcount. Change into that directory (cd extweetwordcount)
 Once in the directory, type: sparse run
 
