@@ -58,7 +58,7 @@ rm 1994.csv
 
 year=1994
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_94.csv > jobs94.csv
-awk '$1 != "99999"' jobs94.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs94.csv > tmp.csv
 mv tmp.csv jobs94.csv
 rm jobs_94.csv
 
@@ -85,7 +85,7 @@ rm 1995.csv
 
 year=1995
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_95.csv > jobs95.csv
-awk '$1 != "99999"' jobs95.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs95.csv > tmp.csv
 mv tmp.csv jobs95.csv
 rm jobs_95.csv
 
@@ -112,7 +112,7 @@ rm 1996.csv
 
 year=1996
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_96.csv > jobs96.csv
-awk '$1 != "99999"' jobs96.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs96.csv > tmp.csv
 mv tmp.csv jobs96.csv
 rm jobs_96.csv
 
@@ -138,7 +138,7 @@ rm 1997.csv
 
 year=1997
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_97.csv > jobs97.csv
-awk '$1 != "99999"' jobs97.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs97.csv > tmp.csv
 mv tmp.csv jobs97.csv
 rm jobs_97.csv
 
@@ -164,7 +164,7 @@ rm 1998.csv
 
 year=1998
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_98.csv > jobs98.csv
-awk '$1 != "99999"' jobs98.csv > tmp.csv
+awk -F","'$1 != "99999"' jobs98.csv > tmp.csv
 mv tmp.csv jobs98.csv
 rm jobs_98.csv
 
@@ -190,7 +190,7 @@ rm 1999.csv
 
 year=1999
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_99.csv > jobs99.csv
-awk '$1 != "99999"' jobs99.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs99.csv > tmp.csv
 mv tmp.csv jobs99.csv
 rm jobs_99.csv
 
@@ -216,7 +216,7 @@ rm 2000.csv
 
 year=2000
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_00.csv > jobs00.csv
-awk '$1 != "99999"' jobs00.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs00.csv > tmp.csv
 mv tmp.csv jobs00.csv
 rm jobs_00.csv
 
@@ -243,7 +243,7 @@ rm 2001.csv
 
 year=2001
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_01.csv > jobs01.csv
-awk '$1 != "99999"' jobs01.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs01.csv > tmp.csv
 mv tmp.csv jobs01.csv
 rm jobs_01.csv
 
@@ -270,7 +270,7 @@ rm 2002.csv
 
 year=2002
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_02.csv > jobs02.csv
-awk '$1 != "99999"' jobs02.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs02.csv > tmp.csv
 mv tmp.csv jobs02.csv
 rm jobs_02.csv
 
@@ -297,7 +297,7 @@ rm 2003.csv
 
 year=2003
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_03.csv > jobs03.csv
-awk '$1 != "99999"' jobs03.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs03.csv > tmp.csv
 mv tmp.csv jobs03.csv
 rm jobs_03.csv
 
@@ -323,7 +323,7 @@ rm 2004.csv
 
 year=2004
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_04.csv > jobs04.csv
-awk '$1 != "99999"' jobs04.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs04.csv > tmp.csv
 mv tmp.csv jobs04.csv
 rm jobs_04.csv
 
@@ -348,7 +348,7 @@ rm 2005.csv
 
 year=2005
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_05.csv > jobs05.csv
-awk '$1 != "99999"' jobs05.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs05.csv > tmp.csv
 mv tmp.csv jobs05.csv
 rm jobs_05.csv
 
@@ -374,7 +374,7 @@ rm 2006.csv
 
 year=2006
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$9=y; print}' jobs_06.csv > jobs06.csv
-awk '$1 != "99999"' jobs06.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs06.csv > tmp.csv
 mv tmp.csv jobs06.csv
 rm jobs_06.csv
 
@@ -401,7 +401,7 @@ rm 2007.csv
 
 year=2007
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$12=y; print}' jobs_07.csv > jobs07.csv
-awk '$1 != "99999"' jobs07.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs07.csv > tmp.csv
 mv tmp.csv jobs07.csv
 rm jobs_07.csv
 
@@ -428,7 +428,7 @@ rm 2008.csv
 
 year=2008
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$12=y; print}' jobs_08.csv > jobs08.csv
-awk '$1 != "99999"' jobs08.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs08.csv > tmp.csv
 mv tmp.csv jobs08.csv
 rm jobs_08.csv
 
@@ -454,7 +454,7 @@ rm 2009.csv
 
 year=2009
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$12=y; print}' jobs_09.csv > jobs09.csv
-awk '$1 != "99999"' jobs09.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs09.csv > tmp.csv
 mv tmp.csv jobs09.csv
 rm jobs_09.csv
 
@@ -480,7 +480,7 @@ rm 2010.csv
 
 year=2010
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$15=y; print}' jobs_10.csv > jobs10.csv
-awk '$1 != "99999"' jobs10.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs10.csv > tmp.csv
 mv tmp.csv jobs10.csv
 rm jobs_10.csv
 
@@ -505,7 +505,7 @@ rm 2011.csv
 
 year=2011
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$15=y; print}' jobs_11.csv > jobs11.csv
-awk '$1 != "99999"' jobs11.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs11.csv > tmp.csv
 mv tmp.csv jobs11.csv
 rm jobs_11.csv
 
@@ -531,7 +531,7 @@ rm 2012.csv
 
 year=2012
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$15=y; print}' jobs_12.csv > jobs12.csv
-awk '$1 != "99999"' jobs12.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs12.csv > tmp.csv
 mv tmp.csv jobs12.csv
 rm jobs_12.csv
 
@@ -556,7 +556,7 @@ rm 2013.csv
 
 year=2013
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$15=y; print}' jobs_13.csv > jobs13.csv
-awk '$1 != "99999"' jobs13.csv > tmp.csv
+awk -F"," '$1 != "99999"' jobs13.csv > tmp.csv
 mv tmp.csv jobs13.csv
 rm jobs_13.csv
 
@@ -582,8 +582,8 @@ rm 2014.csv
 
 year=2014
 awk -v y="$year" -F"," 'BEGIN { OFS = "," } {sub(/\r/,"")}1 {$15=y; print}' jobs_14.csv > jobs14.csv
-awk '$1 != "99999"' jobs14.csv > tmp.csv
-mv tmp.csv > jobs14.csv
+awk -F"," '$1 != "99999"' jobs14.csv > tmp.csv
+mv tmp.csv jobs14.csv
 rm jobs_14.csv
 
 
