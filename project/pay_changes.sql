@@ -78,3 +78,27 @@ from pay_change94_06
 where diff <> 1 and diff <>-1 
 group by zip
 ;
+
+drop table combined;
+
+create table combined as
+select 
+a.zip as zip,
+a.change as change94,
+b.change as change07,
+c.change as change10
+from sum_pay_change10_14 as c
+inner join sum_pay_change94_06 as a
+on c.zip=a.zip
+inner join sum_pay_change07_09 as b
+on b.zip=c.zip;
+
+
+drop table final;
+
+create table final as
+select zip, 
+change94+change07+change10 as tot 
+from combined 
+order by tot desc
+;
