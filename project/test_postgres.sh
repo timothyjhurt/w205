@@ -579,7 +579,7 @@ establishments real,
 year integer);"
 
 psql -c "CREATE TABLE jobs10_14(zip integer,
-name varchar(30),
+name varchar(50),
 empflag varchar(10),
 emp_noise varchar(10),
 employees real,
@@ -600,16 +600,16 @@ state varchar(30),
 location_type varchar(30),
 lat real,
 long real,
-location varchar(30),
+location varchar(50),
 decommisioned varchar(10),
 tax_returns_filed integer,
 estimated_population integer,
 total_wages integer);"
 
-psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' delimiter ',' csv"
-psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' delimiter ',' csv"
-psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' delimiter ',' csv"
-psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' delimiter ',' csv"
+psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' csv"
+psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' csv"
+psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' csv"
+psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' csv"
 
 # delete the leftovers
 rm *
