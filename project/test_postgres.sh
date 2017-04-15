@@ -555,52 +555,57 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 
 # create postgres table and move file into it
 psql -U postgres -c "CREATE ROLE w205 LOGIN;"
-psql -U postgres "CREATE DATABASE w205;"
-psql -c "CREATE TABLE jobs94_06(zip string,
-name string,
-empflag string,
-employees float,
-payroll float,
-annual_pay float,
-establishments float,
-year int);"
-psql -c "CREATE TABLE jobs07_09(zip string,
-name string,
-empflag string,
-emp_noise string,
-employees float,
-payroll_noise string,
-payroll float,
-annual_pay_noise string,
-annual_pay float,
-establishments float,
-year int);"
-psql -c "CREATE TABLE jobs10_14(zip string,
-name string,
-empflag string,
-emp_noise string,
-employees float,
-payroll_noise string,
-payroll float,
-annual_pay_noise string,
-annual_pay float,
-establishments float,
-city string,
-state string,
-county string,
-year int);"
-psql -c "CREATE TABLE zip_lat_long(zip string,
-zip_type string,
-city string,
-state string,
-location_type string,
-lat double,
-long double,
-location string,
-decommisioned string,
-tax_returns_filed int,
-estimated_population int,
-total_wages int);"
+psql -c "CREATE DATABASE w205;"
+
+psql -c "CREATE TABLE jobs94_06(zip integer,
+name varchar(10),
+empflag varchar(10),
+employees varchar(10),
+payroll real,
+annual_pay real,
+establishments real,
+year integer);"
+
+psql -c "CREATE TABLE jobs07_09(zip integer,
+name varchar(10),
+empflag varchar(10),
+emp_noise varchar(10),
+employees real,
+payroll_noise varchar(10),
+payroll real,
+annual_pay_noise varchar(10),
+annual_pay real,
+establishments real,
+year integer);"
+
+psql -c "CREATE TABLE jobs10_14(zip integer,
+name varchar(10),
+empflag varchar(10),
+emp_noise varchar(10),
+employees real,
+payroll_noise varchar(10),
+payroll real,
+annual_pay_noise varchar(10),
+annual_pay real,
+establishments real,
+city varchar(10),
+state varchar(10),
+county varchar(10),
+year integer);"
+
+psql -c "CREATE TABLE zip_lat_long(zip integer,
+zip_type varchar(10),
+city varchar(10),
+state varchar(10),
+location_type varchar(10),
+lat real,
+long real,
+location varchar(10),
+decommisioned varchar(10),
+tax_returns_filed integer,
+estimated_population integer,
+total_wages integer);"
+
 psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' delimiter ',' csv"
 psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' delimiter ',' csv"
 psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' delimiter ',' csv"
