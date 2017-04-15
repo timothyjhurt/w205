@@ -556,10 +556,51 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 # create postgres table and move file into it
 psql -U postgres -c "CREATE ROLE w205 LOGIN;"
 psql -c "CREATE DATABASE w205;"
-psql -c "CREATE TABLE jobs94_06();"
-psql -c "CREATE TABLE jobs07_09();"
-psql -c "CREATE TABLE jobs10_14();"
-psql -c "CREATE TABLE zip_lat_long();"
+psql -c "CREATE TABLE jobs94_06(zip string,
+name string,
+empflag string,
+employees float,
+payroll float,
+annual_pay float,
+establishments float,
+year int);"
+psql -c "CREATE TABLE jobs07_09(zip string,
+name string,
+empflag string,
+emp_noise string,
+employees float,
+payroll_noise string,
+payroll float,
+annual_pay_noise string,
+annual_pay float,
+establishments float,
+year int);"
+psql -c "CREATE TABLE jobs10_14(zip string,
+name string,
+empflag string,
+emp_noise string,
+employees float,
+payroll_noise string,
+payroll float,
+annual_pay_noise string,
+annual_pay float,
+establishments float,
+city string,
+state string,
+county string,
+year int);"
+psql -c "CREATE TABLE zip_lat_long(zip string,
+zip_type string,
+city string,
+state string,
+location_type string,
+lat double,
+long double,
+location string,
+decommisioned string,
+tax_returns_filed int,
+estimated_population int,
+total_wages int);"
 psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' delimiter ',' csv"
 psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' delimiter ',' csv"
 psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' delimiter ',' csv"
