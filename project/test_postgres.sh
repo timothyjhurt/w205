@@ -600,58 +600,58 @@ psql -U postgres -c "CREATE ROLE w205 LOGIN;"
 psql -c "CREATE DATABASE w205;"
 
 psql -c "CREATE TABLE jobs94_06(zip integer,
-name varchar(30),
-empflag varchar(10),
-employees varchar(10),
+name varchar,
+empflag varchar,
+employees varchar,
 payroll real,
 annual_pay real,
 establishments real,
 year integer);"
 
 psql -c "CREATE TABLE jobs07_09(zip integer,
-name varchar(30),
-empflag varchar(10),
-emp_noise varchar(10),
+name varchar,
+empflag varchar,
+emp_noise varchar,
 employees real,
-payroll_noise varchar(10),
+payroll_noise varchar,
 payroll real,
-annual_pay_noise varchar(10),
+annual_pay_noise varchar,
 annual_pay real,
 establishments real,
 year integer);"
 
 psql -c "CREATE TABLE jobs10_14(zip integer,
-name varchar(50),
-empflag varchar(10),
-emp_noise varchar(10),
+name varchar,
+empflag varchar,
+emp_noise varchar,
 employees real,
-payroll_noise varchar(10),
+payroll_noise varchar,
 payroll real,
-annual_pay_noise varchar(10),
+annual_pay_noise varchar,
 annual_pay real,
 establishments real,
-city varchar(30),
-state varchar(30),
-county varchar(30),
+city varchar,
+state varchar,
+county varchar,
 year integer);"
 
 psql -c "CREATE TABLE zip_lat_long(zip integer,
-zip_type varchar(10),
-city varchar(30),
-state varchar(30),
-location_type varchar(30),
+zip_type varchar,
+city varchar,
+state varchar,
+location_type varchar,
 lat real,
 long real,
-location varchar(100),
-decommisioned varchar(10),
+location varchar,
+decommisioned varchar,
 tax_returns_filed integer,
 estimated_population integer,
 total_wages integer);"
 
-psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' csv"
-psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' csv"
-psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' csv"
-psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' csv"
+psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' DELIMITER ',' CSV"
+psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' DELIMITER ',' CSV"
+psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' DELIMITER ',' CSV"
+psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' DELIMITER ',' CSV"
 
 # delete the leftovers
 # for testing, I am hiding this command
