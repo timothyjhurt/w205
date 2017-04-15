@@ -553,21 +553,12 @@ cat jobs07.csv jobs08.csv jobs09.csv > jobs07_09.csv
 cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 
 
-# create hdfs dir and move file into it
+# create postgres table and move file into it
+psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' delimiter ',' csv"
+psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' delimiter ',' csv"
+psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' delimiter ',' csv"
+psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' delimiter ',' csv"
 
-hdfs dfs -mkdir /user/w205/project
-
-hdfs dfs -mkdir /user/w205/project/jobs94_06
-hdfs dfs -put "jobs94_06.csv" /user/w205/project/jobs94_06
-
-hdfs dfs -mkdir /user/w205/project/jobs07_09
-hdfs dfs -put "jobs07_09.csv" /user/w205/project/jobs07_09
-
-hdfs dfs -mkdir /user/w205/project/jobs10_14
-hdfs dfs -put "jobs10_14.csv" /user/w205/project/jobs10_14
-
-hdfs dfs -mkdir /user/w205/project/zip_lat_long
-hdfs dfs -put "zip_lat_long.csv" /user/w205/project/zip_lat_long
 # delete the leftovers
 rm *
 
