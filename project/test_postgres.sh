@@ -555,6 +555,7 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 
 # create postgres table and move file into it
 psql -U postgres -c "CREATE ROLE w205;"
+psql -c "ALTER ROLE 'w205' WITH LOGIN;"
 psql -c "CREATE DATABASE w205;"
 psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' delimiter ',' csv"
 psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' delimiter ',' csv"
