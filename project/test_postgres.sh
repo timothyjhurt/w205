@@ -605,8 +605,7 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 
 
 # create postgres table and move file into it
-psql -U postgres -c "CREATE ROLE w205 LOGIN;"
-psql -c "CREATE DATABASE w205;"
+psql -U postgres -c "CREATE DATABASE w205;"
 
 psql -c "CREATE TABLE jobs94_06(zip integer,
 name varchar,
@@ -664,7 +663,7 @@ psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' DELIMITER ',' CSV"
 
 # delete the leftovers
 # for testing, I am hiding this command
-# rm *
+rm *
 
 #change directory back to the original
 
