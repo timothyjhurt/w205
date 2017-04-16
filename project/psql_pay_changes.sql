@@ -94,7 +94,8 @@ from sum_pay_change10_14 as c
 inner join sum_pay_change94_06 as a
 on c.zip=a.zip
 inner join sum_pay_change07_09 as b
-on b.zip=c.zip;
+on b.zip=c.zip
+;
 
 
 drop table final;
