@@ -10,6 +10,7 @@ jobs07_09 as b
 where a.zip=b.zip 
 AND b.year=a.year+1 
 AND b.year between 2007 and 2009
+AND a.annual_pay>0
 ;
 
 
@@ -38,6 +39,7 @@ jobs10_14 as b
 where a.zip=b.zip 
 AND b.year=a.year+1 
 AND b.year between 2010 and 2014
+AND a.annual_pay>0
 ;
 
 
@@ -65,6 +67,7 @@ jobs94_06 as b
 where a.zip=b.zip 
 AND b.year=a.year+1 
 AND b.year between 1994 and 2006
+AND a.annual_pay>0
 ;
 
 
