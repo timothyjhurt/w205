@@ -606,7 +606,8 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 
 # create postgres table and move file into it
 psql -U postgres -c "CREATE DATABASE w205;"
-
+psql -U postgres -c "CREATE USER w205;"
+psql -U postgres -c "ALTER USER w205 CREATEDB;"
 psql -c "CREATE TABLE jobs94_06(zip integer,
 name varchar,
 empflag varchar,
