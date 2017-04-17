@@ -674,12 +674,14 @@ NegTweets INTEGER NOT NULL);"
 
 
 
-psql -U postgres -d finalproject -f pay_changes_postgres.sql
 # delete the leftovers
 # for testing, I am hiding this command
 rm *
 
 #change directory back to the original
+cd ~/w205/project
+psql -U postgres -d finalproject -f pay_changes_postgres.sql
+
 
 cd $starting_dir
 
