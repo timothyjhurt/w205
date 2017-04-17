@@ -106,3 +106,29 @@ change94+change07+change10 as tot
 from combined 
 order by tot desc
 ;
+
+
+drop table jobs94_14;
+
+create table jobs94_14 as
+select zip, 
+name,
+annual_pay,
+year
+from jobs94_06
+UNION
+select zip, 
+name,
+annual_pay,
+year
+from jobs07_09
+UNION
+select zip, 
+name,
+annual_pay,
+year
+from jobs10_14
+;
+
+
+
