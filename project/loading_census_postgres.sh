@@ -607,6 +607,7 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 # create postgres table and move file into it
 psql -U postgres -c "DROP DATABASE finalproject;"
 psql -U postgres -c "CREATE DATABASE finalproject;"
+psql -U postgres -c "\c finalproject;"
 
 #psql -U postgres -c "DROP USER w205;"
 #psql -U postgres -c "CREATE USER w205;"
