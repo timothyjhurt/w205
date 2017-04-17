@@ -662,10 +662,10 @@ tax_returns_filed integer,
 estimated_population integer,
 total_wages integer);"
 
-psql -c "\copy jobs94_06 FROM 'jobs94_06.csv' DELIMITER ',' CSV"
-psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' DELIMITER ',' CSV"
-psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' DELIMITER ',' CSV"
-psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' DELIMITER ',' CSV"
+psql -U postgres -d finalproject -c "\copy jobs94_06 FROM 'jobs94_06.csv' DELIMITER ',' CSV"
+psql -U postgres -d finalproject -c "\copy jobs07_09 FROM 'jobs07_09.csv' DELIMITER ',' CSV"
+psql -U postgres -d finalproject -c "\copy jobs10_14 FROM 'jobs10_14.csv' DELIMITER ',' CSV"
+psql -U postgres -d finalproject -c "\copy zip_lat_long FROM 'zip_lat_long.csv' DELIMITER ',' CSV"
 
 psql -U postgres -d finalproject -c "CREATE TABLE Sentiment(RecordDate DATE NOT NULL,
 Location VARCHAR NOT NULL,
