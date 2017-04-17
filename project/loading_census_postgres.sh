@@ -669,7 +669,7 @@ psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' DELIMITER ',' CSV"
 psql -U postgres -c "CREATE TABLE Sentiment(RecordDate DATE NOT NULL,
 Location VARCHAR NOT NULL,
 PosTweets INTEGER NOT NULL,
-NegTweets INTTEGER NOT NULL);"
+NegTweets INTEGER NOT NULL);"
 
 # delete the leftovers
 # for testing, I am hiding this command
