@@ -672,6 +672,9 @@ Location VARCHAR NOT NULL,
 PosTweets INTEGER NOT NULL,
 NegTweets INTEGER NOT NULL);"
 
+
+
+psql -U postgres -d finalproject -f pay_changes_postgres.sql
 # delete the leftovers
 # for testing, I am hiding this command
 rm *
