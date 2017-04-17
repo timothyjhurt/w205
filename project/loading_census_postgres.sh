@@ -607,13 +607,13 @@ cat jobs10.csv jobs11.csv jobs12.csv jobs13.csv jobs14.csv > jobs10_14.csv
 # create postgres table and move file into it
 psql -U postgres -c "DROP DATABASE finalproject;"
 psql -U postgres -c "CREATE DATABASE finalproject;"
-psql -U postgres -c "\c finalproject;"
+
 
 #psql -U postgres -c "DROP USER w205;"
 #psql -U postgres -c "CREATE USER w205;"
 #psql -U postgres -c "ALTER USER w205 CREATEDB;"
 
-psql -U postgres -c "CREATE TABLE jobs94_06(zip integer,
+psql -U postgres -d finalproject -c "CREATE TABLE jobs94_06(zip integer,
 name varchar,
 empflag varchar,
 employees varchar,
@@ -622,7 +622,7 @@ annual_pay real,
 establishments real,
 year integer);"
 
-psql -U postgres -c "CREATE TABLE jobs07_09(zip integer,
+psql -U postgres -d finalproject -c "CREATE TABLE jobs07_09(zip integer,
 name varchar,
 empflag varchar,
 emp_noise varchar,
@@ -634,7 +634,7 @@ annual_pay real,
 establishments real,
 year integer);"
 
-psql -U postgres -c "CREATE TABLE jobs10_14(zip integer,
+psql -U postgres -d finalproject -c "CREATE TABLE jobs10_14(zip integer,
 name varchar,
 empflag varchar,
 emp_noise varchar,
@@ -649,7 +649,7 @@ state varchar,
 county varchar,
 year integer);"
 
-psql -U postgres -c "CREATE TABLE zip_lat_long(zip integer,
+psql -U postgres -d finalproject -c "CREATE TABLE zip_lat_long(zip integer,
 zip_type varchar,
 city varchar,
 state varchar,
@@ -667,7 +667,7 @@ psql -c "\copy jobs07_09 FROM 'jobs07_09.csv' DELIMITER ',' CSV"
 psql -c "\copy jobs10_14 FROM 'jobs10_14.csv' DELIMITER ',' CSV"
 psql -c "\copy zip_lat_long FROM 'zip_lat_long.csv' DELIMITER ',' CSV"
 
-psql -U postgres -c "CREATE TABLE Sentiment(RecordDate DATE NOT NULL,
+psql -U postgres -d finalproject -c "CREATE TABLE Sentiment(RecordDate DATE NOT NULL,
 Location VARCHAR NOT NULL,
 PosTweets INTEGER NOT NULL,
 NegTweets INTEGER NOT NULL);"
