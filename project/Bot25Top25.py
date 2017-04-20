@@ -120,10 +120,10 @@ def updateTable(zipcode, pos_number, neg_number):
 
 #run this program indefinitely once started
 i=0
-while i<=50:
+while i<50:
     conn = psycopg2.connect(database="finalproject", user="postgres", password="pass", host="localhost", port="5432")
     cur = conn.cursor()
-    if i<=25:
+    if i<25:
         cur.execute("SELECT zip from sum_pay_change94_14 limit 35")
         j=0
     else:
