@@ -78,6 +78,7 @@ zip,
 sum(perc_pay_diff) as sum_change
 from pay_change94_14
 group by zip
+order by sum_change desc
 ;
 
 
