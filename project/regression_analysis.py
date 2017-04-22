@@ -14,7 +14,7 @@ cur = conn.cursor()
 cur.execute("SELECT * from cleaned_jobs94_14")
 records=cur.fetchall()
 for rec in records:
-    job_data.append([int(rec[0]), int(rec[1]), int(rec[2])])
+    job_data.append([int(rec[0]), int(rec[2]), int(rec[3])])
 job_data=np.array(job_data)
 
 u= np.unique(job_data[:,0])
