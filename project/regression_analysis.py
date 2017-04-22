@@ -20,6 +20,11 @@ job_data=np.array(job_data)
 u= np.unique(job_data[:,0])
 slope=[]
 for i in u:
+    temp_min=0
+    temp_max=0
     z = np.polyfit(job_data[job_data[:,0]==i][:,2], job_data[job_data[:,0]==i][:,1], 1)
-    cur.execute("INSERT INTO regression (zip, slope) VALUES (%s, %s)", (i, z[0]))
+    temp_min=job_data[job_data[:,0]==i][:,1][np.argmin(job_data[job_data[:,0]==i][:,1])]
+    temp_max=job_data[job_data[:,0]==i][:,1][np.argmax(job_data[job_data[:,0]==i][:,1])]
+    cur.execute("INSERT INTO regression (zip, slope) VALUES (%s, %s)", (i, z[0]/(temp_max-temp_min)))
     conn.commit()
+conn.close()
