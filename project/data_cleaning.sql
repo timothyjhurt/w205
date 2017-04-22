@@ -82,7 +82,9 @@ order by sum_change desc
 ;
 
 
-
+create table regression(zip integer, 
+slope real)
+;
 
 
 
