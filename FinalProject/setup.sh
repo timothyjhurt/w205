@@ -6,6 +6,8 @@ pip install -U nltk
 wait
 python -m nltk.downloader punkt
 wait
+pip install numpy
+wait
 #save current dir
 starting_dir=$(pwd)
 
@@ -683,6 +685,8 @@ NegTweets INTEGER NOT NULL);"
 # delete the leftovers
 # for testing, I am hiding this command
 rm *
+rmdir ~/staging/project
+rmdir ~/staging
 
 #change directory back to the original
 cd ~/w205/FinalProject
@@ -692,7 +696,7 @@ psql -U postgres -d finalproject -f data_cleaning.sql
 python regression_analysis.py
 wait
 
-psql -U postgres -d finalproject -f data_table.sql
+psql -U postgres -d finalproject -f final_table.sql
 
 cd $starting_dir
 
