@@ -15,7 +15,7 @@ drop table combined;
 drop table cleaned_zips;
 drop table jobs07_09;
 drop table jobs10_14;
-drop table jobs 94_06;
+drop table jobs94_06;
 drop table cleaned_zips;       
 drop table new_zips;           
 drop table pay_change07_09;    
