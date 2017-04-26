@@ -8,7 +8,6 @@ b.slope as slope
 from sum_pay_change94_14 a 
 inner join regression b on 
 a.zip=b.zip
-order by sum_change desc
 ;
 
 drop table final;
