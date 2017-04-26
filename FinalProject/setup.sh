@@ -8,6 +8,8 @@ python -m nltk.downloader punkt
 wait
 pip install numpy
 wait
+pip install tweepy
+wait
 #save current dir
 starting_dir=$(pwd)
 
